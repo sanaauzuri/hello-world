@@ -78,4 +78,4 @@ Click a country card to open a panel with the country's name, flag, capitol, reg
 - N/A
 
 **Future improvements:**
-- Addition of a Maps feature allowing users to see a country through Google Maps by clicking a button.
+- Addition of a Maps button on the country detail panel allowing users to see a country through Google Maps.
