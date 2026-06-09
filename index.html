@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>hello-world</title>
+
+    <script type="module" crossorigin src="/hello-world/assets/index-h0w18pLa.js"></script>
+    <link rel="stylesheet" crossorigin href="/hello-world/assets/index-DuRshbPm.css">
+  </head>
+
+  <body>
+
+    <header>
+
+      <h1>hello world</h1>
+      <p>click a country to learn more</p>
+
+    </header>
+
+    <main>
+
+      <form id="search-form" aria-label="Search for country by name">
+        <label for="search"></label>
+        <input type="text" id="search" name="searchTerm" placeholder="search by name">
+        <button type="submit">Search</button>
+      </form>
+
+      <p id="error-message" class="hidden"></p>
+
+      <div id="app-body">
+
+        <section id="country-details" class="hidden">
+          <button id="close-btn">✕</button>
+          <div id="detail-content"></div>
+        </section>
+
+        <section id="collection">
+          <h2>Countries</h2>
+          <ul id="countries-list"></ul>
+        </section>
+
+      </div>
+
+    </main>
+
+
+  </body>
+</html>
