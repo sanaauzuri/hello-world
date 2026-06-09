@@ -75,7 +75,7 @@ Click a country card to open a panel with the country's name, flag, capitol, reg
 ## Known Limitations and Future Improvements
 
 **Known limitations:**
-- After a user enters a search term, the user has to cick the search button to see all countries again
+- After a user enters a search term, the user has to click the search button to see all countries again
 
 **Future improvements:**
 - Addition of a Maps button on the country detail panel allowing users to see a country through Google Maps.
