@@ -11,9 +11,9 @@ export const renderCountries = (countries) => {
     const li = document.createElement('li');
     li.dataset.countryCode = country.cca3;
 
-    const img = document.createElement('img');
-    img.src = country.flags.png;
-    img.alt = country.name.common;
+    const flagEmoji = document.createElement('span');
+    flagEmoji.textContent = country.flag;
+    flagEmoji.setAttribute('aria-hidden', 'true');
 
     const h3 = document.createElement('h3');
     h3.textContent = country.name.common;
@@ -21,7 +21,7 @@ export const renderCountries = (countries) => {
     const p = document.createElement('p');
     p.textContent = country.region;
 
-    li.append(img, h3, p);
+    li.append(flagEmoji, h3, p);
     countriesList.append(li);
   });
 };
@@ -30,29 +30,59 @@ export const renderCountryDetails = (country) => {
   detailsSection.classList.remove('hidden');
   detailContent.innerHTML = '';
 
-  const flag = document.createElement('img');
-  flag.src = country.flags.png;
-  flag.alt = country.name.common;
+  const flagEmoji = document.createElement('p');
+  flagEmoji.textContent = country.flag;
+  flagEmoji.style.fontSize = '3rem';
+  flagEmoji.style.textAlign = 'center';
+  flagEmoji.style.marginBottom = '0.5rem';
 
   const name = document.createElement('h2');
   name.textContent = country.name.common;
+  name.style.textAlign = 'center';
+  name.style.marginBottom = '0.25rem';
 
   const official = document.createElement('p');
   official.textContent = country.name.official;
+  official.style.textAlign = 'center';
+  official.style.fontSize = '0.8rem';
+  official.style.color = '#888';
+  official.style.marginBottom = '1rem';
 
-  const region = document.createElement('p');
-  region.textContent = `Region: ${country.region}`;
+  const statGrid = document.createElement('div');
+  statGrid.style.display = 'grid';
+  statGrid.style.gridTemplateColumns = '1fr 1fr';
+  statGrid.style.gap = '0.5rem';
 
-  const capital = document.createElement('p');
-  capital.textContent = `Capital: ${country.capital?.[0] ?? 'N/A'}`;
+  const stats = [
+    { label: 'Region', value: country.region },
+    { label: 'Capital', value: country.capital?.[0] ?? 'N/A' },
+    { label: 'Population', value: country.population.toLocaleString() },
+    { label: 'Languages', value: Object.values(country.languages ?? {}).join(', ') },
+  ];
 
-  const population = document.createElement('p');
-  population.textContent = `Population: ${country.population.toLocaleString()}`;
+  stats.forEach(({ label, value }) => {
+    const box = document.createElement('div');
+    box.style.background = '#f5f5f5';
+    box.style.borderRadius = '8px';
+    box.style.padding = '0.6rem 0.75rem';
 
-  const languages = document.createElement('p');
-  languages.textContent = `Languages: ${Object.values(country.languages ?? {}).join(', ')}`;
+    const statLabel = document.createElement('p');
+    statLabel.textContent = label;
+    statLabel.style.fontSize = '0.7rem';
+    statLabel.style.color = '#888';
+    statLabel.style.marginBottom = '2px';
 
-  detailContent.append(flag, name, official, region, capital, population, languages);
+    const statValue = document.createElement('p');
+    statValue.textContent = value;
+    statValue.style.fontSize = '0.85rem';
+    statValue.style.fontWeight = '500';
+    statValue.style.color = '#333';
+
+    box.append(statLabel, statValue);
+    statGrid.append(box);
+  });
+
+  detailContent.append(flagEmoji, name, official, statGrid);
 };
 
 export const renderError = (msg) => {
