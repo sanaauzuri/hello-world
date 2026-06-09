@@ -2,7 +2,7 @@ const countriesList = document.querySelector('#countries-list');
 const detailsSection = document.querySelector('#country-details');
 const detailContent = document.querySelector('#detail-content');
 const errorMessage = document.querySelector('#error-message');
-const countryCount = document.querySelector('#country-count');
+
 
 export const renderCountries = (countries) => {
   countriesList.innerHTML = '';
