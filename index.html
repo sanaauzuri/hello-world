@@ -1,13 +1,52 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <!-- <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> -->
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>hello-world</title>
+
   </head>
+  
   <body>
-    <div id="app"></div>
+
+    <header>
+
+      <h1>hello world</h1>
+      <p>click a country to learn more</p>
+
+    </header>
+
+    <main>
+
+      <form id="search-form">
+        <label for="search">Search by country name</label>
+        <input type="text" id="search" name="searchTerm" placeholder="e.g. Brazil">
+        <button type="submit">Search</button>
+      </form>
+
+      <p id="error-message" class="hidden"></p>
+
+      <div id="app-body">
+
+        <section id="country-details" class="hidden">
+          <button id="close-btn">✕</button>
+          <div id="detail-content"></div>
+        </section>
+
+        <section id="collection">
+          <h2>Countries</h2>
+          <ul id="countries-list"></ul>
+        </section>
+
+    </div>
+
+    </main>
+
+    <footer>
+    </footer>
+
     <script type="module" src="/src/main.js"></script>
+
   </body>
 </html>
