@@ -40,10 +40,10 @@ header p {
   margin-bottom: 1.5rem;
 }
 
-#search-form label {
+/* #search-form label {
   font-size: 0.95rem;
-  color: gray;
-}
+  color: white;
+} */
 
 #search-form input {
   padding: 8px 12px;
@@ -99,7 +99,7 @@ header p {
 
 #country-details {
   background: white;
-  border: 1px solid black;
+  border: 1px solid lightgray;
   border-radius: 12px;
   padding: 1rem;
   position: sticky;
@@ -110,7 +110,7 @@ header p {
   display: block;
   margin-left: auto;
   background: none;
-  border: 1px solid black;
+  border: 1px solid white;
   border-radius: 6px;
   padding: 2px 8px;
   cursor: pointer;
@@ -119,9 +119,9 @@ header p {
   margin-bottom: 0.75rem;
 }
 
-#close-btn:hover {
+/* #close-btn:hover {
   background-color: #eff6ff;
-}
+} */
 
 #detail-content img {
   width: 100%;
@@ -136,7 +136,8 @@ header p {
 
 #detail-content p {
   font-size: 0.85rem;
-  color: lightgrey;
+  /* background-color: #F4F4F6; */
+  color: black;
   margin-bottom: 0.4rem;
   line-height: 1.5;
 }
@@ -166,7 +167,7 @@ header p {
 }
 
 #countries-list li {
-  background: rgb(240, 240, 240);
+  background: #F4F4F6;
   /* border: 1px solid #ddd; */
   border-radius: 8px;
   padding: 0.75rem 0.5rem;

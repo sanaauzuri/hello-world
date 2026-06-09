@@ -62,7 +62,7 @@ export const renderCountryDetails = (country) => {
 
   stats.forEach(({ label, value }) => {
     const box = document.createElement('div');
-    box.style.background = '#f5f5f5';
+    box.style.background = '#F4F4F6';
     box.style.borderRadius = '8px';
     box.style.padding = '0.6rem 0.75rem';
 
@@ -76,7 +76,7 @@ export const renderCountryDetails = (country) => {
     statValue.textContent = value;
     statValue.style.fontSize = '0.85rem';
     statValue.style.fontWeight = '500';
-    statValue.style.color = '#333';
+    statValue.style.color = 'black';
 
     box.append(statLabel, statValue);
     statGrid.append(box);
