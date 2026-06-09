@@ -2,7 +2,7 @@
 
 **Summary: hello world is an online geography learning tool.**
 
-**Live deployed link:** 
+**Live deployed link:** [https://sanaauzuri.github.io/hello-world/]
 
 **Coder:**\
 Sanaa-Uzuri Robotham
