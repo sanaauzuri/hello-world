@@ -4,7 +4,7 @@
 
 **Live deployed link:** 
 
-**Coder**\
+**Coder:**\
 Sanaa-Uzuri Robotham
 
 ## API:
@@ -59,14 +59,14 @@ Below is a walkthrough of hello world's core features.
 
 **<details><summary>Search</summary>**
 
-![Search feature — type in a country name to find a specific country](./src/imgs/)
+![Search feature — type in a country name to find a specific country](./src/imgs/search.png)
 
 Type in a country name to find a specific country
 </details>
 
 **<details><summary>Country Detail Panel</summary>**
 
-![Click a country card to open a panel with the country's name, flag, capitol, region, population, and languages.](./src/imgs/)
+![Click a country card to open a panel with the country's name, flag, capitol, region, population, and languages.](./src/imgs/panel.png)
 
 Click a country card to open a panel with the country's name, flag, capitol, region, population, and languages
 </details>
