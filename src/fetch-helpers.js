@@ -20,6 +20,7 @@ export const getCountryByCode = (code) => {
       }
       return response.json();
     })
+    .then((data) => Array.isArray(data) ? data[0] : data)
     .catch((error) => {
       console.error(error.message);
       return null;
