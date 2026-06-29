@@ -40,7 +40,7 @@ form.addEventListener('submit', (event) => {
   form.reset();
 
   const filtered = allCountries.filter((country) =>
-    country.name.common.toLowerCase().includes(searchTerm)
+    country['names.common'].toLowerCase().includes(searchTerm)
   );
 
   if (filtered.length === 0) {
