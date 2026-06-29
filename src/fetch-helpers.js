@@ -1,28 +1,37 @@
-export const getCountries = () => {
-  return fetch('https://restcountries.com/v3.1/all?fields=name,flag,cca3,region')
-    .then((response) => {
-      if (!response.ok) {
-        throw Error(`Fetch failed. ${response.status} ${response.statusText}`);
-      }
-      return response.json();
-    })
-    .catch((error) => {
-      console.error(error.message);
-      return null;
-    });
-};
+const API_KEY = import.meta.env.VITE_API_KEY;
+const API_URL = 'https://api.restcountries.com/countries/v5';
+const HEADERS = { 'Authorization': `Bearer ${API_KEY}` };
 
-export const getCountryByCode = (code) => {
-  return fetch(`https://restcountries.com/v3.1/alpha/${code}?fields=name,flag,capital,region,population,languages`)
-    .then((response) => {
-      if (!response.ok) {
-        throw Error(`Fetch failed. ${response.status} ${response.statusText}`);
-      }
-      return response.json();
-    })
-    .then((data) => Array.isArray(data) ? data[0] : data)
-    .catch((error) => {
-      console.error(error.message);
-      return null;
-    });
+export const getCountries = async () => {
+  try {
+    const response = await fetch(
+      `${API_URL}?response_fields=names.common,flag.emoji,codes.alpha_3,region&limit=100`,
+      { headers: HEADERS }
+    );
+    if (!response.ok) {
+      throw new Error(`Fetch failed. ${response.status} ${response.statusText}`);
+    }
+    const data = await response.json();
+    return data.data.objects;
+  } catch (error) {
+    console.warn(error.message);
+    return null;
+  }
+};
+ 
+export const getCountryByCode = async (code) => {
+  try {
+    const response = await fetch(
+      `${API_URL}/codes.alpha_3/${code}?response_fields=names.common,flag.emoji,capitals,region,population,languages`,
+      { headers: HEADERS }
+    );
+    if (!response.ok) {
+      throw new Error(`Fetch failed. ${response.status} ${response.statusText}`);
+    }
+    const data = await response.json();
+    return data.data.objects[0];
+  } catch (error) {
+    console.warn(error.message);
+    return null;
+  }
 };
