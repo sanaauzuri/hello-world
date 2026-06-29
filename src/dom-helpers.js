@@ -9,14 +9,14 @@ export const renderCountries = (countries) => {
 
   countries.forEach((country) => {
     const li = document.createElement('li');
-    li.dataset.countryCode = country.cca3;
+    li.dataset.countryCode = country['codes.alpha_3'];
 
     const flagEmoji = document.createElement('span');
-    flagEmoji.textContent = country.flag;
+    flagEmoji.textContent = country['flag.emoji'];
     flagEmoji.setAttribute('aria-hidden', 'true');
 
     const h3 = document.createElement('h3');
-    h3.textContent = country.name.common;
+    h3.textContent = country['names.common'];
 
     const p = document.createElement('p');
     p.textContent = country.region;
@@ -31,18 +31,18 @@ export const renderCountryDetails = (country) => {
   detailContent.innerHTML = '';
 
   const flagEmoji = document.createElement('p');
-  flagEmoji.textContent = country.flag;
+  flagEmoji.textContent = country['flag.emoji'];
   flagEmoji.style.fontSize = '3rem';
   flagEmoji.style.textAlign = 'center';
   flagEmoji.style.marginBottom = '0.5rem';
 
   const name = document.createElement('h2');
-  name.textContent = country.name.common;
+  name.textContent = country['names.common'];
   name.style.textAlign = 'center';
   name.style.marginBottom = '0.25rem';
 
   const official = document.createElement('p');
-  official.textContent = country.name.official;
+  official.textContent = country['names.official'];
   official.style.textAlign = 'center';
   official.style.fontSize = '0.8rem';
   official.style.color = '#888';
@@ -55,9 +55,9 @@ export const renderCountryDetails = (country) => {
 
   const stats = [
     { label: 'Region', value: country.region },
-    { label: 'Capital', value: country.capital?.[0] ?? 'N/A' },
-    { label: 'Population', value: country.population.toLocaleString() },
-    { label: 'Languages', value: Object.values(country.languages ?? {}).join(', ') },
+    { label: 'Capital', value: country.capitals?.[0]?.name ?? 'N/A' },
+    { label: 'Population', value: country.population?.toLocaleString() ?? 'N/A' },
+    { label: 'Languages', value: country.languages?.map(l => l.name).join(', ') ?? 'N/A' },
   ];
 
   stats.forEach(({ label, value }) => {
